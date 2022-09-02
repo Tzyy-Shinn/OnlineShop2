@@ -23,7 +23,13 @@ namespace OnlineShop2.Models
         [Required]
         public string Address { get; set; }
 
+        //[DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime OrderDate { get; set; }
+        //public DateTime OrderD ()
+        //{
+        //    OrderDate = DateTime.Now;
+        //    return OrderDate;
+        //}
 
         public virtual List<OrderDetails> OrderDetails { get; set; }
 

@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -6,6 +6,7 @@ using OnlineShop2.Data;
 using OnlineShop2.Models;
 using OnlineShop2.Utility;
 using System.Diagnostics;
+using X.PagedList;
 
 namespace OnlineShop2.Controllers
 {
@@ -19,9 +20,9 @@ namespace OnlineShop2.Controllers
             _db = db;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(int? page)
         {
-            return View(_db.Products.Include(c => c.ProductType).Include(c => c.SpecialTag).ToList());
+            return View(_db.Products.Include(c => c.ProductType).Include(c => c.SpecialTag).ToList().ToPagedList(page??1, 9));
             //return View();
         }
 

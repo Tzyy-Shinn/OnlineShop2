@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace OnlineShop2.Models
@@ -8,6 +9,11 @@ namespace OnlineShop2.Models
         public int Id { get; set; }
         [Required]
         public string Name { get; set; }
+        [Required]
+        public string Description  { get; set; }
+        [Required]
+        [Display(Name ="Quantity")]
+        public int proQuantity { get; set; }
         [Required]
         public decimal Price { get; set; }
         public string Image { get; set; }
